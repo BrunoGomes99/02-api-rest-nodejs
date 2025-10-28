@@ -21,6 +21,9 @@ const envSchema = z.object({
   // e dará erro caso não esteja definida
   DATABASE_URL: z.string(),
 
+  // Aqui dizemos que esperamos que o client do banco de dados seja um enum contendo essas 2 opções (sqlite ou postgres)
+  DATABASE_CLIENT: z.enum(['sqlite', 'pg']),
+
   // Aqui dizemos que esperamos um enum contendo essas 3 opções, mas se por um acaso não for passado nenhuma dessas
   // 3 opções, o padrão será 'development'
   NODE_ENV: z.enum(['development', 'test', 'production']).default('production'),
